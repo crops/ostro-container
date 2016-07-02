@@ -1,0 +1,3 @@
+usersetup ALL=NOPASSWD: /usr/bin/restrict_groupadd.sh
+usersetup ALL=NOPASSWD: /usr/bin/restrict_useradd.sh
+usersetup ALL = (ostrouser) NOPASSWD:SETENV: /usr/bin/ostro-launch.py
