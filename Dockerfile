@@ -17,15 +17,17 @@
 # ostro build container
 #
 
-FROM crops/yocto:debian-8-base
+FROM crops/yocto:ubuntu-16.04-base
 
 USER root
 
-COPY usersetup.py \
-     ostro-launch.py \
+ADD https://raw.githubusercontent.com/crops/extsdk-container/master/restrict_useradd.sh  \
+    https://raw.githubusercontent.com/crops/extsdk-container/master/restrict_groupadd.sh \
+    https://raw.githubusercontent.com/crops/extsdk-container/master/usersetup.py \
+    /usr/bin/
+
+COPY ostro-launch.py \
      ostro-entry.py \
-     restrict_groupadd.sh \
-     restrict_useradd.sh \
      /usr/bin/
 
 COPY sudoers.usersetup /etc/
